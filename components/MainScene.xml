@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="MainScene" extends="Scene">
+
+    <script type="text/brightscript" uri="MainScene.brs" />
+
+
+    <customization suspendhandler="customSuspend" />
+    <customization resumehandler="customResume" />
+    <interface>
+
+        <field id="inputArgs" type="assocarray" />
+        <field id="launchArgs" type="assocarray" />
+
+
+        <field id="exitApp" type="boolean" alwaysNotify="true" />
+
+
+    </interface>
+
+    <children>
+
+
+        <Poster width="1920" height="1080" uri="pkg:/images/backgro.jpg" />
+
+        <Video id="videoPlayer" visible="false" />
+
+        <Group id="BBGroup" visible="true" translation="[0,0]">
+
+
+            <Button id="B1" focusable="true" iconUri="" text="SnowFall" focusedIconUri=""
+                visible="true" translation="[50, 980]"
+                maxWidth="340" minWidth="240" height="100"
+                focusBitmapUri="" focusFootprintBitmapUri=""
+                showFocusFootprint="true" />
+
+
+            <Button id="B2" focusable="true" iconUri="" text="FirePlace" focusedIconUri=""
+                visible="true" translation="[300, 980]"
+                maxWidth="340" minWidth="240" height="100"
+                focusBitmapUri="" focusFootprintBitmapUri=""
+                showFocusFootprint="true" />
+
+            <Button id="B3" focusable="true" iconUri="" text="SnowPark" focusedIconUri=""
+                visible="true" translation="[550, 980]"
+                maxWidth="340" minWidth="240" height="100"
+                focusBitmapUri="" focusFootprintBitmapUri=""
+                showFocusFootprint="true" />
+
+            <Button id="B4" focusable="true" iconUri="" text="SnowForest" focusedIconUri=""
+                visible="true" translation="[800, 980]"
+                maxWidth="340" minWidth="240" height="100"
+                focusBitmapUri="" focusFootprintBitmapUri=""
+                showFocusFootprint="true" />
+
+            <Button id="B5" focusable="true" iconUri="" text="WaterFall" focusedIconUri=""
+                visible="true" translation="[1090, 980]"
+                maxWidth="340" minWidth="240" height="100"
+                focusBitmapUri="" focusFootprintBitmapUri=""
+                showFocusFootprint="true" />
+
+            <Button id="B6" focusable="true" iconUri="" text="WaterTank" focusedIconUri=""
+                visible="true" translation="[1350, 980]"
+                maxWidth="340" minWidth="240" height="100"
+                focusBitmapUri="" focusFootprintBitmapUri=""
+                showFocusFootprint="true" />
+
+            <Button id="B7" focusable="true" iconUri="" text="UnderWater" focusedIconUri=""
+                visible="true" translation="[1610, 980]"
+                maxWidth="340" minWidth="240" height="100"
+                focusBitmapUri="" focusFootprintBitmapUri=""
+                showFocusFootprint="true" />
+
+
+        </Group>
+
+
+        <Group id="ExitGroup" visible="false" translation="[0,0]">
+            <Poster width="1920" height="1080" uri="pkg:/images/background_overlay.png" />
+            <Poster id="feedbackOverlay" width="1920" height="1080"
+                uri="pkg:/images/home screen/exit_dialog.png" />
+
+            <Button id="exitButton" focusable="true" iconUri="" text="" focusedIconUri=""
+                visible="true" translation="[626, 633]"
+                maxWidth="320" minWidth="320" height="80"
+                focusBitmapUri="pkg:/images/home screen/no_button.png"
+                focusFootprintBitmapUri="pkg:/images/home screen/no_button_f.png"
+                showFocusFootprint="true" />
+
+            <Button id="cancelExitButton" focusable="true" iconUri="" focusedIconUri="" text=""
+                visible="true" translation="[994, 633]"
+                maxWidth="320" minWidth="320" height="80"
+                focusBitmapUri="pkg:/images/home screen/yes_button.png"
+                focusFootprintBitmapUri="pkg:/images/home screen/yes_button_f.png"
+                showFocusFootprint="true" />
+        </Group>
+
+    </children>
+</component>

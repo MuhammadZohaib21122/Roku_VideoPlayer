@@ -1,0 +1,15 @@
+title=ROKU Fireplace
+major_version=1
+minor_version=1
+build_version=2
+mm_icon_focus_hd=pkg:/images/logos/app_icon_hd.jpg
+mm_icon_focus_sd=pkg:/images/logos/app_icon_sd.jpg
+mm_icon_focus_fhd=pkg:/images/logos/app_icon_fhd.jpg
+splash_screen_fhd=pkg:/images/logos/Splash_FHD.jpg
+splash_screen_hd=pkg:/images/logos/Splash_HD.jpg
+splash_screen_sd=pkg:/images/logos/Splash_SD.jpg
+ui_resolutions=fhd
+splash_rsg_optimization=1
+supports_input_launch=1
+sdk_instant_resume=1
+run_as_process=1
