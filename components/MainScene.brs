@@ -47,91 +47,91 @@ sub onVideoDuration(event as object)
 end sub
 
 
-function videoplay2()
+' function videoplay2()
 
-    m.video.translation = "[0,0]"
-    m.BBGroup.visible = false
-    m.video.visible = true
-    m.video = m.top.findNode("videoPlayer")
-    m.video.content = createObject("roSGNode", "ContentNode")
-    m.video.content.url = "https://vz-1a8ceb4a-84a.b-cdn.net/ddda6950-961a-4e49-9e1d-f514ef0aca39/playlist.m3u8"
-    m.video.content.streamFormat = "HLS"
-    m.video.control = "play"
-    m.video.observeField("duration", "onVideoDuration")
+'     m.video.translation = "[0,0]"
+'     m.BBGroup.visible = false
+'     m.video.visible = true
+'     m.video = m.top.findNode("videoPlayer")
+'     m.video.content = createObject("roSGNode", "ContentNode")
+'     m.video.content.url = "https://vz-1a8ceb4a-84a.b-cdn.net/ddda6950-961a-4e49-9e1d-f514ef0aca39/playlist.m3u8"
+'     m.video.content.streamFormat = "HLS"
+'     m.video.control = "play"
+'     m.video.observeField("duration", "onVideoDuration")
 
-end function
+' end function
 
-function videoplay3()
+' function videoplay3()
 
-    m.video.translation = "[0,0]"
-    m.BBGroup.visible = false
-    m.video.visible = true
-    m.video = m.top.findNode("videoPlayer")
-    m.video.content = createObject("roSGNode", "ContentNode")
-    m.video.content.url = "https://vz-1a8ceb4a-84a.b-cdn.net/c54fa081-3299-43d2-8ca5-6cafc4568cb3/playlist.m3u8"
-    m.video.content.streamFormat = "HLS"
-    m.video.control = "play"
-    m.video.observeField("duration", "onVideoDuration")
+'     m.video.translation = "[0,0]"
+'     m.BBGroup.visible = false
+'     m.video.visible = true
+'     m.video = m.top.findNode("videoPlayer")
+'     m.video.content = createObject("roSGNode", "ContentNode")
+'     m.video.content.url = "https://vz-1a8ceb4a-84a.b-cdn.net/c54fa081-3299-43d2-8ca5-6cafc4568cb3/playlist.m3u8"
+'     m.video.content.streamFormat = "HLS"
+'     m.video.control = "play"
+'     m.video.observeField("duration", "onVideoDuration")
 
-end function
-function videoplay4()
+' end function
+' function videoplay4()
 
-    m.video.translation = "[0,0]"
-    m.BBGroup.visible = false
-    m.video.visible = true
+'     m.video.translation = "[0,0]"
+'     m.BBGroup.visible = false
+'     m.video.visible = true
 
-    m.video = m.top.findNode("videoPlayer")
-    m.video.content = createObject("roSGNode", "ContentNode")
-    m.video.content.url = "https://vz-1a8ceb4a-84a.b-cdn.net/83b7b34c-0315-40f1-9fee-6fad26c12a2e/playlist.m3u8"
-    m.video.content.streamFormat = "HLS"
-    m.video.control = "play"
-    m.video.observeField("duration", "onVideoDuration")
+'     m.video = m.top.findNode("videoPlayer")
+'     m.video.content = createObject("roSGNode", "ContentNode")
+'     m.video.content.url = "https://vz-1a8ceb4a-84a.b-cdn.net/83b7b34c-0315-40f1-9fee-6fad26c12a2e/playlist.m3u8"
+'     m.video.content.streamFormat = "HLS"
+'     m.video.control = "play"
+'     m.video.observeField("duration", "onVideoDuration")
 
-end function
-function videoplay5()
+' end function
+' function videoplay5()
 
-    m.video.translation = "[0,0]"
-    m.BBGroup.visible = false
-    m.video.visible = true
+'     m.video.translation = "[0,0]"
+'     m.BBGroup.visible = false
+'     m.video.visible = true
 
-    m.video = m.top.findNode("videoPlayer")
-    m.video.content = createObject("roSGNode", "ContentNode")
-    m.video.content.url = "https://vz-81c807ed-aaa.b-cdn.net/5cf1aba3-9443-4dad-acdc-9439a26ac166/playlist.m3u8"
-    m.video.content.streamFormat = "HLS"
-    m.video.control = "play"
-    m.video.observeField("duration", "onVideoDuration")
+'     m.video = m.top.findNode("videoPlayer")
+'     m.video.content = createObject("roSGNode", "ContentNode")
+'     m.video.content.url = "https://vz-81c807ed-aaa.b-cdn.net/5cf1aba3-9443-4dad-acdc-9439a26ac166/playlist.m3u8"
+'     m.video.content.streamFormat = "HLS"
+'     m.video.control = "play"
+'     m.video.observeField("duration", "onVideoDuration")
 
-end function
+' end function
 
-function videoplay6()
+' function videoplay6()
 
-    m.video.translation = "[0,0]"
-    m.BBGroup.visible = false
-    m.video.visible = true
+'     m.video.translation = "[0,0]"
+'     m.BBGroup.visible = false
+'     m.video.visible = true
 
-    m.video = m.top.findNode("videoPlayer")
-    m.video.content = createObject("roSGNode", "ContentNode")
-    m.video.content.url = "https://vz-5182823f-c24.b-cdn.net/fa9157a7-c955-44b3-a179-8d1c7b93d452/playlist.m3u8"
-    m.video.content.streamFormat = "HLS"
-    m.video.control = "play"
-    m.video.observeField("duration", "onVideoDuration")
+'     m.video = m.top.findNode("videoPlayer")
+'     m.video.content = createObject("roSGNode", "ContentNode")
+'     m.video.content.url = "https://vz-5182823f-c24.b-cdn.net/fa9157a7-c955-44b3-a179-8d1c7b93d452/playlist.m3u8"
+'     m.video.content.streamFormat = "HLS"
+'     m.video.control = "play"
+'     m.video.observeField("duration", "onVideoDuration")
 
-end function
+' end function
 
-function videoplay7()
+' function videoplay7()
 
-    m.video.translation = "[0,0]"
-    m.BBGroup.visible = false
-    m.video.visible = true
+'     m.video.translation = "[0,0]"
+'     m.BBGroup.visible = false
+'     m.video.visible = true
 
-    m.video = m.top.findNode("videoPlayer")
-    m.video.content = createObject("roSGNode", "ContentNode")
-    m.video.content.url = "https://vz-5182823f-c24.b-cdn.net/3e5d0ad6-6a46-43cb-b541-6a671e1ada6b/playlist.m3u8"
-    m.video.content.streamFormat = "HLS"
-    m.video.control = "play"
-    m.video.observeField("duration", "onVideoDuration")
+'     m.video = m.top.findNode("videoPlayer")
+'     m.video.content = createObject("roSGNode", "ContentNode")
+'     m.video.content.url = "https://vz-5182823f-c24.b-cdn.net/3e5d0ad6-6a46-43cb-b541-6a671e1ada6b/playlist.m3u8"
+'     m.video.content.streamFormat = "HLS"
+'     m.video.control = "play"
+'     m.video.observeField("duration", "onVideoDuration")
 
-end function
+' end function
 
 
 function cancelExitDialoge()
