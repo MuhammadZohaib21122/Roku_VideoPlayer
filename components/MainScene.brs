@@ -23,6 +23,8 @@ function init()
     m.BBGroup.visible = true
     m.B1.setFocus(true)
 
+    m.lastLoggedSecond = 0
+
 
 end function
 
@@ -38,6 +40,8 @@ function videoplay1()
     m.video.control = "play"
 
     m.video.observeField("duration", "onVideoDuration")
+    m.video.observeField("state", "onVideoStateChange")
+    m.video.observeField("position", "onVideoPositionChange")
     ?"LL-------------" m.video.control
 end function
 
@@ -45,93 +49,137 @@ sub onVideoDuration(event as object)
     duration = event.getData()
     ?"Video Duration: " duration
 end sub
+sub onVideoPositionChange(event as object)
+    position = event.getData()
+    second = int(position)
+
+    if second > m.lastLoggedSecond
+
+        m.lastLoggedSecond = second
+        ?"Video Running seconds: " m.lastLoggedSecond
+    end if
+end sub
+
+sub onVideoStateChange(event as object)
+    state = event.getData()
+    ?"Video State: " state
 
 
-' function videoplay2()
+    if state = "finished"
+        ?"Restarting video..."
+        m.video.control = "stop"
+        m.video.control = "play"
+    end if
+end sub
 
-'     m.video.translation = "[0,0]"
-'     m.BBGroup.visible = false
-'     m.video.visible = true
-'     m.video = m.top.findNode("videoPlayer")
-'     m.video.content = createObject("roSGNode", "ContentNode")
-'     m.video.content.url = "https://vz-1a8ceb4a-84a.b-cdn.net/ddda6950-961a-4e49-9e1d-f514ef0aca39/playlist.m3u8"
-'     m.video.content.streamFormat = "HLS"
-'     m.video.control = "play"
-'     m.video.observeField("duration", "onVideoDuration")
+function videoplay2()
 
-' end function
+    m.video.translation = "[0,0]"
+    m.BBGroup.visible = false
+    m.video.visible = true
+    m.video = m.top.findNode("videoPlayer")
+    m.video.content = createObject("roSGNode", "ContentNode")
+    m.video.content.url = "https://vz-1a8ceb4a-84a.b-cdn.net/ddda6950-961a-4e49-9e1d-f514ef0aca39/playlist.m3u8"
+    m.video.content.streamFormat = "HLS"
+    m.video.control = "play"
 
-' function videoplay3()
+    m.video.observeField("duration", "onVideoDuration")
+    m.video.observeField("state", "onVideoStateChange")
+    m.video.observeField("position", "onVideoPositionChange")
+    ?"LL-------------" m.video.control
 
-'     m.video.translation = "[0,0]"
-'     m.BBGroup.visible = false
-'     m.video.visible = true
-'     m.video = m.top.findNode("videoPlayer")
-'     m.video.content = createObject("roSGNode", "ContentNode")
-'     m.video.content.url = "https://vz-1a8ceb4a-84a.b-cdn.net/c54fa081-3299-43d2-8ca5-6cafc4568cb3/playlist.m3u8"
-'     m.video.content.streamFormat = "HLS"
-'     m.video.control = "play"
-'     m.video.observeField("duration", "onVideoDuration")
+end function
 
-' end function
-' function videoplay4()
 
-'     m.video.translation = "[0,0]"
-'     m.BBGroup.visible = false
-'     m.video.visible = true
+function videoplay3()
 
-'     m.video = m.top.findNode("videoPlayer")
-'     m.video.content = createObject("roSGNode", "ContentNode")
-'     m.video.content.url = "https://vz-1a8ceb4a-84a.b-cdn.net/83b7b34c-0315-40f1-9fee-6fad26c12a2e/playlist.m3u8"
-'     m.video.content.streamFormat = "HLS"
-'     m.video.control = "play"
-'     m.video.observeField("duration", "onVideoDuration")
+    m.video.translation = "[0,0]"
+    m.BBGroup.visible = false
+    m.video.visible = true
+    m.video = m.top.findNode("videoPlayer")
+    m.video.content = createObject("roSGNode", "ContentNode")
+    m.video.content.url = "https://vz-1a8ceb4a-84a.b-cdn.net/c54fa081-3299-43d2-8ca5-6cafc4568cb3/playlist.m3u8"
+    m.video.content.streamFormat = "HLS"
+    m.video.control = "play"
 
-' end function
-' function videoplay5()
+    m.video.observeField("duration", "onVideoDuration")
+    m.video.observeField("state", "onVideoStateChange")
+    m.video.observeField("position", "onVideoPositionChange")
+    ?"LL-------------" m.video.control
 
-'     m.video.translation = "[0,0]"
-'     m.BBGroup.visible = false
-'     m.video.visible = true
+end function
 
-'     m.video = m.top.findNode("videoPlayer")
-'     m.video.content = createObject("roSGNode", "ContentNode")
-'     m.video.content.url = "https://vz-81c807ed-aaa.b-cdn.net/5cf1aba3-9443-4dad-acdc-9439a26ac166/playlist.m3u8"
-'     m.video.content.streamFormat = "HLS"
-'     m.video.control = "play"
-'     m.video.observeField("duration", "onVideoDuration")
+function videoplay4()
 
-' end function
+    m.video.translation = "[0,0]"
+    m.BBGroup.visible = false
+    m.video.visible = true
 
-' function videoplay6()
+    m.video = m.top.findNode("videoPlayer")
+    m.video.content = createObject("roSGNode", "ContentNode")
+    m.video.content.url = "https://vz-1a8ceb4a-84a.b-cdn.net/83b7b34c-0315-40f1-9fee-6fad26c12a2e/playlist.m3u8"
+    m.video.content.streamFormat = "HLS"
+    m.video.control = "play"
 
-'     m.video.translation = "[0,0]"
-'     m.BBGroup.visible = false
-'     m.video.visible = true
+    m.video.observeField("duration", "onVideoDuration")
+    m.video.observeField("state", "onVideoStateChange")
+    m.video.observeField("position", "onVideoPositionChange")
+    ?"LL-------------" m.video.control
+end function
 
-'     m.video = m.top.findNode("videoPlayer")
-'     m.video.content = createObject("roSGNode", "ContentNode")
-'     m.video.content.url = "https://vz-5182823f-c24.b-cdn.net/fa9157a7-c955-44b3-a179-8d1c7b93d452/playlist.m3u8"
-'     m.video.content.streamFormat = "HLS"
-'     m.video.control = "play"
-'     m.video.observeField("duration", "onVideoDuration")
+function videoplay5()
 
-' end function
+    m.video.translation = "[0,0]"
+    m.BBGroup.visible = false
+    m.video.visible = true
 
-' function videoplay7()
+    m.video = m.top.findNode("videoPlayer")
+    m.video.content = createObject("roSGNode", "ContentNode")
+    m.video.content.url = "https://vz-81c807ed-aaa.b-cdn.net/5cf1aba3-9443-4dad-acdc-9439a26ac166/playlist.m3u8"
+    m.video.content.streamFormat = "HLS"
+    m.video.control = "play"
 
-'     m.video.translation = "[0,0]"
-'     m.BBGroup.visible = false
-'     m.video.visible = true
+    m.video.observeField("duration", "onVideoDuration")
+    m.video.observeField("state", "onVideoStateChange")
+    m.video.observeField("position", "onVideoPositionChange")
+    ?"LL-------------" m.video.control
+end function
 
-'     m.video = m.top.findNode("videoPlayer")
-'     m.video.content = createObject("roSGNode", "ContentNode")
-'     m.video.content.url = "https://vz-5182823f-c24.b-cdn.net/3e5d0ad6-6a46-43cb-b541-6a671e1ada6b/playlist.m3u8"
-'     m.video.content.streamFormat = "HLS"
-'     m.video.control = "play"
-'     m.video.observeField("duration", "onVideoDuration")
+function videoplay6()
 
-' end function
+    m.video.translation = "[0,0]"
+    m.BBGroup.visible = false
+    m.video.visible = true
+
+    m.video = m.top.findNode("videoPlayer")
+    m.video.content = createObject("roSGNode", "ContentNode")
+    m.video.content.url = "https://vz-5182823f-c24.b-cdn.net/fa9157a7-c955-44b3-a179-8d1c7b93d452/playlist.m3u8"
+    m.video.content.streamFormat = "HLS"
+    m.video.control = "play"
+
+    m.video.observeField("duration", "onVideoDuration")
+    m.video.observeField("state", "onVideoStateChange")
+    m.video.observeField("position", "onVideoPositionChange")
+    ?"LL-------------" m.video.control
+end function
+
+function videoplay7()
+
+    m.video.translation = "[0,0]"
+    m.BBGroup.visible = false
+    m.video.visible = true
+
+    m.video = m.top.findNode("videoPlayer")
+    m.video.content = createObject("roSGNode", "ContentNode")
+    m.video.content.url = "https://vz-5182823f-c24.b-cdn.net/3e5d0ad6-6a46-43cb-b541-6a671e1ada6b/playlist.m3u8"
+    m.video.content.streamFormat = "HLS"
+    m.video.control = "play"
+
+    m.video.observeField("duration", "onVideoDuration")
+    m.video.observeField("state", "onVideoStateChange")
+    m.video.observeField("position", "onVideoPositionChange")
+    ?"LL-------------" m.video.control
+end function
 
 
 function cancelExitDialoge()
@@ -170,6 +218,7 @@ function onKeyEvent(key as string, press as boolean) as boolean
 
             else if m.video.visible = true and m.BBGroup.visible = true
 
+                m.video.control = "stop"
 
                 m.video.visible = false
                 m.BBGroup.visible = true
