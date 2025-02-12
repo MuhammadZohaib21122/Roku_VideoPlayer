@@ -157,7 +157,7 @@ function onKeyEvent(key as string, press as boolean) as boolean
 
         if key = "back"
 
-            if  m.video.visible = false and m.BBGroup.visible = true
+            if m.video.visible = false and m.BBGroup.visible = true
 
                 m.ExitGroup.visible = true
                 m.cancelExitDialogeButton.setFocus(true)
@@ -170,14 +170,15 @@ function onKeyEvent(key as string, press as boolean) as boolean
 
             else if m.video.visible = true and m.BBGroup.visible = true
 
+
                 m.video.visible = false
                 m.BBGroup.visible = true
                 m.B1.setFocus(true)
                 handled = true
-                
-            else if m.video.visible = true 
 
-              
+            else if m.video.visible = true
+
+
                 m.BBGroup.visible = true
                 m.B1.setFocus(true)
                 handled = true
@@ -287,18 +288,9 @@ function onKeyEvent(key as string, press as boolean) as boolean
             m.B1.setFocus(true)
 
         else if key = "up" and m.BBGroup.visible = true
-            m.video.translation = "[0, 0]"
+            ' m.video.translation = "[0, 0]"
             m.BBGroup.visible = false
 
-
-        else if key = "play" and m.video.visible = true
-            ?"Play Button press ======================"
-
-            m.video.control = "stop"
-
-            m.video.visible = false
-            m.BBGroup.visible = true
-            m.B1.setFocus(true)
             handled = true
         end if
         handled = true
