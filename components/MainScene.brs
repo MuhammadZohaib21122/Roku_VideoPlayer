@@ -58,6 +58,13 @@ sub onVideoPositionChange(event as object)
         m.lastLoggedSecond = second
         ?"Video Running seconds: " m.lastLoggedSecond
     end if
+
+    if m.lastLoggedSecond >= 60
+
+          m.video.control = "stop"
+
+        
+    end if
 end sub
 
 sub onVideoStateChange(event as object)
