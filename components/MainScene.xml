@@ -10,6 +10,7 @@
 
         <field id="inputArgs" type="assocarray" />
         <field id="launchArgs" type="assocarray" />
+        <field id="rowListData" type="node" />
 
 
         <field id="exitApp" type="boolean" alwaysNotify="true" />
@@ -23,6 +24,17 @@
         <Poster width="1920" height="1080" uri="pkg:/images/backgro.jpg" />
 
         <Video id="videoPlayer" visible="false" />
+        <!-- 
+        <RowList id="BBRowList"
+            itemSize="[340, 100]"
+            numRows="1"
+            rowItemSpacing="20"
+            translation="[50, 980]"
+            visible="true"
+             focusable="true"
+            content="[rowListData]">
+        </RowList> -->
+
 
         <Group id="BBGroup" visible="true" translation="[0,0]">
 
@@ -73,25 +85,69 @@
 
         </Group>
 
+        <Group id="SubscriptionGroup" visible="false" translation="[0,0]">
+
+           <Poster width="1920" height="1080" uri="pkg:/images/backgro.jpg" />
+
+            <Poster id="subscriptionPoster" width="1920" height="1080"
+                uri="pkg:/images/Subscription/subscription_dialog.png" />
+
+            <Button id="closeSubscriptionButton" focusable="true" iconUri="" text=""
+                focusedIconUri=""
+                visible="true"
+                translation="[665, 766]"
+                maxWidth="278" minWidth="278" height="80"
+                focusFootprintBitmapUri="pkg:/images/Subscription/subscription_close_btn_unfocus.png"
+                focusBitmapUri="pkg:/images/Subscription/subscription_close_btn_focus.png"
+                showFocusFootprint="true" />
+
+            <Button id="subscribeButton" focusable="true" iconUri="" text="" focusedIconUri=""
+                visible="true"
+                translation="[978, 766]"
+                maxWidth="278" minWidth="278" height="80"
+                focusFootprintBitmapUri="pkg:/images/Subscription/subscription_subscribe_btn_unfocus.png"
+                focusBitmapUri="pkg:/images/Subscription/subscription_subscribe_btn_focus.png"
+                showFocusFootprint="true" />
+
+        </Group>
+
+        <Group id="SubscriptionDoneGroup" visible="false" translation="[0,0]">
+
+         <Poster id = "subscriptionDonePoster" width = "1920" height = "1080" uri = "pkg:/images/Subscription/subscription_done_dialog.png" />
+        
+        <Button id = "closeSubscriptionDoneButton" focusable="true" iconUri="" text="" focusedIconUri=""
+            visible="true"
+            translation="[845, 745]"
+            maxWidth="232" minWidth="232" height="80"
+            focusFootprintBitmapUri="pkg:/images/Subscription/great_btn.png"
+            focusBitmapUri="pkg:/images/Subscription/great_btn.png"
+            showFocusFootprint="true" />
+        </Group>
+
 
         <Group id="ExitGroup" visible="false" translation="[0,0]">
-            <Poster width="1920" height="1080" uri="pkg:/images/background_overlay.png" />
-            <Poster id="feedbackOverlay" width="1920" height="1080"
-                uri="pkg:/images/home screen/exit_dialog.png" />
+           
+
+            <Poster id="settingOverlay" width="1920" height="1080"
+                uri="pkg:/images/exit/exit_dialog.png" />
+
 
             <Button id="exitButton" focusable="true" iconUri="" text="" focusedIconUri=""
-                visible="true" translation="[626, 633]"
-                maxWidth="320" minWidth="320" height="80"
-                focusBitmapUri="pkg:/images/home screen/no_button.png"
-                focusFootprintBitmapUri="pkg:/images/home screen/no_button_f.png"
+                visible="true"
+                translation="[986, 669]"
+                maxWidth="253" minWidth="253" height="81"
+                focusFootprintBitmapUri="pkg:/images/exit/yes_UF.png"
+                focusBitmapUri="pkg:/images/exit/yes_F.png"
                 showFocusFootprint="true" />
 
-            <Button id="cancelExitButton" focusable="true" iconUri="" focusedIconUri="" text=""
-                visible="true" translation="[994, 633]"
-                maxWidth="320" minWidth="320" height="80"
-                focusBitmapUri="pkg:/images/home screen/yes_button.png"
-                focusFootprintBitmapUri="pkg:/images/home screen/yes_button_f.png"
+            <Button id="cancelExitButton" focusable="true" iconUri="" text="" focusedIconUri=""
+                visible="true"
+                translation="[680, 669]"
+                maxWidth="253" minWidth="253" height="81"
+                focusFootprintBitmapUri="pkg:/images/exit/no_UF.png"
+                focusBitmapUri="pkg:/images/exit/no_F.png"
                 showFocusFootprint="true" />
+
         </Group>
 
     </children>
