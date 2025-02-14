@@ -14,8 +14,8 @@ sub showChannelSGScreen(args as object)
     screen.show()
 
     m.scene.launchArgs = args
-    ' ?"m.scene.launchArgs  " m.scene.launchArgs 
-    ' ?"========================> " args
+    ?"m.scene.launchArgs  " m.scene.launchArgs 
+    ?"========================> " args
     inputObject = createobject("roInput")
     inputObject.setmessageport(m.port)
 
