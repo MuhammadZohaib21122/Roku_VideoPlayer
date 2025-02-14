@@ -1,4 +1,5 @@
 function init()
+    m.rateUsFlag = "true"
     m.BBGroup = m.top.findNode("BBGroup")
     m.ExitGroup = m.top.FindNode("ExitGroup")
     m.exitAppButton = m.top.findNode("exitButton")
@@ -20,13 +21,78 @@ function init()
     m.B6.observeField("buttonSelected", "videoplay6")
     m.B7 = m.top.findNode("B7")
     m.B7.observeField("buttonSelected", "videoplay7")
+    m.SubscriptionGroup = m.top.findNode("SubscriptionGroup")
+    m.closeSubscriptionButton = m.top.findNode("closeSubscriptionButton")
+    m.subscribeButton = m.top.findNode("subscribeButton")
+    m.subscribeButton.observeField("buttonSelected", "onClickSubscribeButton")
+
+    m.SubscriptionDoneGroup = m.top.findNode("SubscriptionDoneGroup")
+    m.closeSubscriptionDoneButton = m.top.findNode("closeSubscriptionDoneButton")
+    m.closeSubscriptionDoneButton.observeField("buttonSelected", "onSubscribeDoneButton")
+
     m.BBGroup.visible = true
     m.B1.setFocus(true)
 
+
     m.lastLoggedSecond = 0
 
+    m.rateUsRegistry = CreateObject("roRegistrySection", "showRateUsPopup")
+
+    if m.rateUsRegistry.Exists("RateusFlag") = false
+        m.rateUsRegistry.Write("RateusFlag", "true")
+
+    end if
+    ?"flag"m.rateUsFlag
+
+    ' rateUsRegistry = CreateObject("roRegistrySection", "showRateUsPopup")
+
+
+
+
+
+    ' m.rowList = m.top.findNode("BBRowList")
+    ' m.rowListData = CreateObject("roSGNode", "ContentNode")
+
+
+
+    ' buttonData = [
+    '     { title: "SnowFall", function: "videoplay1" },
+    '     { title: "FirePlace", function: "videoplay2" },
+    '     { title: "SnowPark", function: "videoplay3" },
+    '     { title: "SnowForest", function: "videoplay4" },
+    '     { title: "WaterFall", function: "videoplay5" },
+    '     { title: "WaterTank", function: "videoplay6" },
+    '     { title: "UnderWater", function: "videoplay7" }
+    ' ]
+
+
+    ' for each item in buttonData
+    '     node = m.rowListData.createChild("ContentNode")
+    '     node.AddFields({
+    '         title: item.title
+    '     })
+    '     node.functionName = item.function
+    ' end for
+
+    ' m.rowList.content = m.rowListData
+    ' m.rowList.visible = true
+    ' m.rowList.setFocus(true)
+
+
+    ' m.rowList.observeField("itemSelected", "OnItemSelected")
 
 end function
+
+' sub OnItemSelected()
+'     selectedIndex = m.rowList.itemSelected
+'     selectedNode = m.rowList.content.getChild(selectedIndex)
+
+'     if selectedNode <> invalid
+'         functionName = selectedNode.functionName
+'         print "Calling function: " + functionName
+'         m.callFunction(functionName)
+'     end if
+' end sub
 
 function videoplay1()
 
@@ -46,25 +112,43 @@ function videoplay1()
 end function
 
 sub onVideoDuration(event as object)
-    duration = event.getData()
-    ?"Video Duration: " duration
+
+    m.duration = event.getData()
+    ?"Video Duration: "m. duration
+
 end sub
 sub onVideoPositionChange(event as object)
+
     position = event.getData()
     second = int(position)
 
-    if second > m.lastLoggedSecond
+    second = m.lastLoggedSecond
+    ?"Video Running seconds: " m.lastLoggedSecond
 
-        m.lastLoggedSecond = second
-        ?"Video Running seconds: " m.lastLoggedSecond
+    ' if second <= m.duration
+
+    '     m.lastLoggedSecond = second
+    '     ?"Video Running seconds: " m.lastLoggedSecond
+    ' end if
+
+
+    if m.lastLoggedSecond = 5 and m.rateUsRegistry.Exists("RateusFlag") then
+        m.rateUsFlag = m.rateUsRegistry.Read("RateusFlag")
+        ?"Log Rigestry------------->>>>>>>>>>"
+        if  m.rateUsFlag = "true" then
+            ?"Log Rigestry----True--------->>>>>>>>>>"
+            m.video.control = "pause"
+            m.video.visible=false
+            m.B1.setFocus(false)
+            m.BBGroup.visible=false
+            m.SubscriptionGroup.visible = true
+            m.subscribeButton.setFocus(true)
+
+            m.rateUsRegistry.Write("RateusFlag", "false")
+        end if
     end if
 
-    if m.lastLoggedSecond >= 60
 
-          m.video.control = "stop"
-
-        
-    end if
 end sub
 
 sub onVideoStateChange(event as object)
@@ -78,6 +162,22 @@ sub onVideoStateChange(event as object)
         m.video.control = "play"
     end if
 end sub
+
+function onClickSubscribeButton()
+    m.SubscriptionGroup.visible = false
+    m.SubscriptionDoneGroup.visible = true
+    m.closeSubscriptionDoneButton.setFocus(true)
+end function
+
+function onSubscribeDoneButton()
+
+    m.SubscriptionDoneGroup.visible = false
+    m.B1.setFocus(true)
+    m.BBGroup.visible = false
+    m.video.visible = true
+    m.video.control = "resume"
+    m.rateUsFlag = "false"
+end function
 
 function videoplay2()
 
@@ -193,16 +293,12 @@ function cancelExitDialoge()
     m.ExitGroup.visible = false
     m.B1.setFocus(true)
 
-
 end function
 
 sub exitButtonSelect()
     m.top.getScene().exitApp = true
 end sub
 
-function translationChange(params)
-
-end function
 
 function onKeyEvent(key as string, press as boolean) as boolean
 
@@ -238,6 +334,14 @@ function onKeyEvent(key as string, press as boolean) as boolean
                 m.BBGroup.visible = true
                 m.B1.setFocus(true)
                 handled = true
+
+            ' else if  m.SubscriptionGroup.visible = true
+
+            '     m.SubscriptionGroup.visible = false
+            '     m.video.visible = false
+            '     m.BBGroup.visible = true
+            '     m.B1.setFocus(true)
+            '     handled = true
 
             end if
         end if
@@ -331,9 +435,20 @@ function onKeyEvent(key as string, press as boolean) as boolean
             m.cancelExitDialogeButton.setFocus(false)
             m.exitAppButton.setFocus(true)
 
+        else if key = "right" and m.closeSubscriptionButton.hasFocus()
+
+            m.closeSubscriptionButton.setFocus(false)
+            m.subscribeButton.setFocus(true)
+
+
         else if key = "left" and m.exitAppButton.hasFocus()
             m.exitAppButton.setFocus(false)
             m.cancelExitDialogeButton.setFocus(true)
+
+        else if key = "left" and m.subscribeButton.hasFocus()
+
+            m.subscribeButton.setFocus(false)
+            m.closeSubscriptionButton.setFocus(true)
 
         else if key = "down" and m.video.visible = true
             ' m.video.translation = "[0, -100]"
@@ -354,5 +469,3 @@ function onKeyEvent(key as string, press as boolean) as boolean
 
     return handled
 end function
-
-
