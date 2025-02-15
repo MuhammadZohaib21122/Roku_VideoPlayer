@@ -24,17 +24,6 @@
         <Poster width="1920" height="1080" uri="pkg:/images/backgro.jpg" />
 
         <Video id="videoPlayer" visible="false" />
-        <!-- 
-        <RowList id="BBRowList"
-            itemSize="[340, 100]"
-            numRows="1"
-            rowItemSpacing="20"
-            translation="[50, 980]"
-            visible="true"
-             focusable="true"
-            content="[rowListData]">
-        </RowList> -->
-
 
         <Group id="BBGroup" visible="true" translation="[0,0]">
 
