@@ -44,55 +44,8 @@ function init()
     end if
     ?"flag"m.rateUsFlag
 
-    ' rateUsRegistry = CreateObject("roRegistrySection", "showRateUsPopup")
-
-
-
-
-
-    ' m.rowList = m.top.findNode("BBRowList")
-    ' m.rowListData = CreateObject("roSGNode", "ContentNode")
-
-
-
-    ' buttonData = [
-    '     { title: "SnowFall", function: "videoplay1" },
-    '     { title: "FirePlace", function: "videoplay2" },
-    '     { title: "SnowPark", function: "videoplay3" },
-    '     { title: "SnowForest", function: "videoplay4" },
-    '     { title: "WaterFall", function: "videoplay5" },
-    '     { title: "WaterTank", function: "videoplay6" },
-    '     { title: "UnderWater", function: "videoplay7" }
-    ' ]
-
-
-    ' for each item in buttonData
-    '     node = m.rowListData.createChild("ContentNode")
-    '     node.AddFields({
-    '         title: item.title
-    '     })
-    '     node.functionName = item.function
-    ' end for
-
-    ' m.rowList.content = m.rowListData
-    ' m.rowList.visible = true
-    ' m.rowList.setFocus(true)
-
-
-    ' m.rowList.observeField("itemSelected", "OnItemSelected")
 
 end function
-
-' sub OnItemSelected()
-'     selectedIndex = m.rowList.itemSelected
-'     selectedNode = m.rowList.content.getChild(selectedIndex)
-
-'     if selectedNode <> invalid
-'         functionName = selectedNode.functionName
-'         print "Calling function: " + functionName
-'         m.callFunction(functionName)
-'     end if
-' end sub
 
 function videoplay1()
 
@@ -114,33 +67,32 @@ end function
 sub onVideoDuration(event as object)
 
     m.duration = event.getData()
-    ?"Video Duration: "m. duration
+    ?"Video Duration: "m.duration
 
 end sub
 sub onVideoPositionChange(event as object)
 
     position = event.getData()
-    second = int(position)
+    position = int(position)
+    if position <= m.duration
 
-    second = m.lastLoggedSecond
-    ?"Video Running seconds: " m.lastLoggedSecond
+        m.lastLoggedSecond = position
 
-    ' if second <= m.duration
-
-    '     m.lastLoggedSecond = second
-    '     ?"Video Running seconds: " m.lastLoggedSecond
-    ' end if
+        ?"Video Running seconds: " position
+    end if
 
 
     if m.lastLoggedSecond = 5 and m.rateUsRegistry.Exists("RateusFlag") then
         m.rateUsFlag = m.rateUsRegistry.Read("RateusFlag")
         ?"Log Rigestry------------->>>>>>>>>>"
-        if  m.rateUsFlag = "true" then
+
+        if m.rateUsFlag = "true" then
+
             ?"Log Rigestry----True--------->>>>>>>>>>"
             m.video.control = "pause"
-            m.video.visible=false
+            m.video.visible = false
             m.B1.setFocus(false)
-            m.BBGroup.visible=false
+            m.BBGroup.visible = false
             m.SubscriptionGroup.visible = true
             m.subscribeButton.setFocus(true)
 
@@ -335,13 +287,13 @@ function onKeyEvent(key as string, press as boolean) as boolean
                 m.B1.setFocus(true)
                 handled = true
 
-            ' else if  m.SubscriptionGroup.visible = true
+                ' else if  m.SubscriptionGroup.visible = true
 
-            '     m.SubscriptionGroup.visible = false
-            '     m.video.visible = false
-            '     m.BBGroup.visible = true
-            '     m.B1.setFocus(true)
-            '     handled = true
+                '     m.SubscriptionGroup.visible = false
+                '     m.video.visible = false
+                '     m.BBGroup.visible = true
+                '     m.B1.setFocus(true)
+                '     handled = true
 
             end if
         end if
