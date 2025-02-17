@@ -30,6 +30,8 @@ function init()
     m.closeSubscriptionButton = m.top.findNode("closeSubscriptionButton")
     m.subscribeButton = m.top.findNode("subscribeButton")
     m.subscribeButton.observeField("buttonSelected", "onClickSubscribeButton")
+    m.closeSubscriptionButton.observeField("buttonSelected", "onClickSubscribeCancelButton")
+
 
     m.SubscriptionDoneGroup = m.top.findNode("SubscriptionDoneGroup")
     m.closeSubscriptionDoneButton = m.top.findNode("closeSubscriptionDoneButton")
@@ -86,7 +88,6 @@ sub onVideoPositionChange(event as object)
         ?"Video Running seconds: " position
     end if
 
-
     if m.lastLoggedSecond = 5 and m.rateUsRegistry.Exists("RateusFlag") then
         m.rateUsFlag = m.rateUsRegistry.Read("RateusFlag")
         ?"Log Rigestry------------->>>>>>>>>>"
@@ -98,13 +99,24 @@ sub onVideoPositionChange(event as object)
             m.video.visible = false
             m.B1.setFocus(false)
             m.BBGroup.visible = false
-            m.SubscriptionGroup.visible = true
-            m.subscribeButton.setFocus(true)
-
+            m.PreSubscriptionGroup.visible = true
+            m.GoTOSubscriptionBTN.setFocus(true)
             m.rateUsRegistry.Write("RateusFlag", "false")
         end if
     end if
+end sub
 
+sub forwardVideo(event as object)
+
+    position = event.getData()
+    position = int(position)
+
+    if position <= m.duration
+
+        m.lastLoggedSecond = position + 300
+
+        ?"Video Running seconds: "  m.lastLoggedSecond
+    end if
 
 end sub
 
@@ -121,13 +133,21 @@ sub onVideoStateChange(event as object)
 end sub
 
 function gotoSubscribe()
-    
+    m.PreSubscriptionGroup.visible = false
+    m.SubscriptionGroup.visible = true
+    m.subscribeButton.setFocus(true)
 end function
 
 function onClickSubscribeButton()
     m.SubscriptionGroup.visible = false
     m.SubscriptionDoneGroup.visible = true
     m.closeSubscriptionDoneButton.setFocus(true)
+end function
+
+function onClickSubscribeCancelButton()
+    m.SubscriptionGroup.visible = false
+    m.PreSubscriptionGroup.visible = true
+    m.GoTOSubscriptionBTN.setFocus(true)
 end function
 
 function onSubscribeDoneButton()
@@ -418,6 +438,10 @@ function onKeyEvent(key as string, press as boolean) as boolean
         else if key = "down" and m.video.visible = false
             m.BBGroup.visible = true
             m.B1.setFocus(true)
+
+        else if key = "play" and m.video.visible = true
+            ?"forward"
+           
 
         else if key = "up" and m.BBGroup.visible = true
             ' m.video.translation = "[0, 0]"
