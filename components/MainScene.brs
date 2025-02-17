@@ -62,6 +62,8 @@ function videoplay1()
     m.video = m.top.findNode("videoPlayer")
     m.video.content = createObject("roSGNode", "ContentNode")
     m.video.content.url = "https://vz-1a8ceb4a-84a.b-cdn.net/0423eda1-4989-4f4b-9110-dd0b3c843d53/playlist.m3u8"
+
+
     m.video.content.streamFormat = "HLS"
     m.video.control = "play"
     m.video.setFocus(true)
@@ -69,6 +71,11 @@ function videoplay1()
     m.video.observeField("duration", "onVideoDuration")
     m.video.observeField("state", "onVideoStateChange")
     m.video.observeField("position", "onVideoPositionChange")
+    errorMessage()
+    m.video.setFocus(true)
+
+
+
     ?"LL-------------" m.video.control
 end function
 
@@ -106,10 +113,18 @@ sub onVideoPositionChange(event as object)
         end if
     end if
 end sub
+sub errorMessage()
+
+    ?"errorCode => " m.video.errorCode
+    ?"errorMsg => " m.video.errorMsg
+    ?"errorStr => " m.video.errorStr
+    ?"errorInfo => " m.video.errorInfo
+
+end sub
 
 ' sub videoForward()
 '     newPosition = m.lastLoggedSecond + 200
-'     if newPosition > m.duration then newPosition = m.duration 
+'     if newPosition > m.duration then newPosition = m.duration
 '     m.video.seek = newPosition
 '     ?"Video Forwarded to: " newPosition
 ' end sub
@@ -117,7 +132,7 @@ end sub
 
 ' sub videoRewind()
 '     newPosition = m.lastLoggedSecond - 10
-'     if newPosition < 0 then newPosition = 0 
+'     if newPosition < 0 then newPosition = 0
 '     m.video.seek = newPosition
 '     ?"Video Rewinded to: " newPosition
 ' end sub
@@ -176,6 +191,9 @@ function videoplay2()
     m.video.observeField("duration", "onVideoDuration")
     m.video.observeField("state", "onVideoStateChange")
     m.video.observeField("position", "onVideoPositionChange")
+    errorMessage()
+    m.video.setFocus(true)
+
     ?"LL-------------" m.video.control
 
 end function
@@ -195,6 +213,9 @@ function videoplay3()
     m.video.observeField("duration", "onVideoDuration")
     m.video.observeField("state", "onVideoStateChange")
     m.video.observeField("position", "onVideoPositionChange")
+    errorMessage()
+    m.video.setFocus(true)
+
     ?"LL-------------" m.video.control
 
 end function
@@ -214,6 +235,9 @@ function videoplay4()
     m.video.observeField("duration", "onVideoDuration")
     m.video.observeField("state", "onVideoStateChange")
     m.video.observeField("position", "onVideoPositionChange")
+    errorMessage()
+    m.video.setFocus(true)
+
     ?"LL-------------" m.video.control
 end function
 
@@ -232,6 +256,9 @@ function videoplay5()
     m.video.observeField("duration", "onVideoDuration")
     m.video.observeField("state", "onVideoStateChange")
     m.video.observeField("position", "onVideoPositionChange")
+    errorMessage()
+    m.video.setFocus(true)
+
     ?"LL-------------" m.video.control
 end function
 
@@ -250,6 +277,9 @@ function videoplay6()
     m.video.observeField("duration", "onVideoDuration")
     m.video.observeField("state", "onVideoStateChange")
     m.video.observeField("position", "onVideoPositionChange")
+    errorMessage()
+    m.video.setFocus(true)
+
     ?"LL-------------" m.video.control
 end function
 
@@ -268,6 +298,9 @@ function videoplay7()
     m.video.observeField("duration", "onVideoDuration")
     m.video.observeField("state", "onVideoStateChange")
     m.video.observeField("position", "onVideoPositionChange")
+    errorMessage()
+    m.video.setFocus(true)
+
     ?"LL-------------" m.video.control
 end function
 
@@ -440,6 +473,10 @@ function onKeyEvent(key as string, press as boolean) as boolean
         else if key = "down" and m.video.visible = false
             m.BBGroup.visible = true
             m.B1.setFocus(true)
+
+        else if key = "replay" and m.video.visible = true
+            m.video.control = "stop"
+            m.video.control = "play"
 
         else if key = "up" and m.BBGroup.visible = true
             ' m.video.translation = "[0, 0]"
