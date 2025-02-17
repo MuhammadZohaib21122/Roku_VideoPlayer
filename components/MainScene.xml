@@ -74,9 +74,24 @@
 
         </Group>
 
+        <Group id="PreSubscriptionGroup" visible="false" translation="[0,0]">
+
+            <Poster id="trialFinished" width="1920" height="1080"
+                uri="pkg:/images/Subscription/stream_limit_dialog.png" />
+
+            <Button id="GoTOSubscriptionBTN" focusable="true" iconUri="" text=""
+                focusedIconUri=""
+                visible="true"
+                translation="[845, 745]"
+                maxWidth="232" minWidth="232" height="80"
+                focusFootprintBitmapUri="pkg:/images/Subscription/great_btn.png"
+                focusBitmapUri="pkg:/images/Subscription/great_btn.png"
+                showFocusFootprint="true" />
+        </Group>
+
         <Group id="SubscriptionGroup" visible="false" translation="[0,0]">
 
-           <Poster width="1920" height="1080" uri="pkg:/images/backgro.jpg" />
+            <Poster width="1920" height="1080" uri="pkg:/images/backgro.jpg" />
 
             <Poster id="subscriptionPoster" width="1920" height="1080"
                 uri="pkg:/images/Subscription/subscription_dialog.png" />
@@ -102,20 +117,22 @@
 
         <Group id="SubscriptionDoneGroup" visible="false" translation="[0,0]">
 
-         <Poster id = "subscriptionDonePoster" width = "1920" height = "1080" uri = "pkg:/images/Subscription/subscription_done_dialog.png" />
-        
-        <Button id = "closeSubscriptionDoneButton" focusable="true" iconUri="" text="" focusedIconUri=""
-            visible="true"
-            translation="[845, 745]"
-            maxWidth="232" minWidth="232" height="80"
-            focusFootprintBitmapUri="pkg:/images/Subscription/great_btn.png"
-            focusBitmapUri="pkg:/images/Subscription/great_btn.png"
-            showFocusFootprint="true" />
+            <Poster id="subscriptionDonePoster" width="1920" height="1080"
+                uri="pkg:/images/Subscription/subscription_done_dialog.png" />
+
+            <Button id="closeSubscriptionDoneButton" focusable="true" iconUri="" text=""
+                focusedIconUri=""
+                visible="true"
+                translation="[845, 745]"
+                maxWidth="232" minWidth="232" height="80"
+                focusFootprintBitmapUri="pkg:/images/Subscription/great_btn.png"
+                focusBitmapUri="pkg:/images/Subscription/great_btn.png"
+                showFocusFootprint="true" />
         </Group>
 
 
         <Group id="ExitGroup" visible="false" translation="[0,0]">
-           
+
 
             <Poster id="settingOverlay" width="1920" height="1080"
                 uri="pkg:/images/exit/exit_dialog.png" />
