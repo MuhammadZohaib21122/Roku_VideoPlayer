@@ -21,6 +21,11 @@ function init()
     m.B6.observeField("buttonSelected", "videoplay6")
     m.B7 = m.top.findNode("B7")
     m.B7.observeField("buttonSelected", "videoplay7")
+
+    m.PreSubscriptionGroup = m.top.findNode("PreSubscriptionGroup")
+    m.GoTOSubscriptionBTN = m.top.findNode("GoTOSubscriptionBTN")
+    m.GoTOSubscriptionBTN.observeField("buttonSelected", "gotoSubscribe")
+
     m.SubscriptionGroup = m.top.findNode("SubscriptionGroup")
     m.closeSubscriptionButton = m.top.findNode("closeSubscriptionButton")
     m.subscribeButton = m.top.findNode("subscribeButton")
@@ -114,6 +119,10 @@ sub onVideoStateChange(event as object)
         m.video.control = "play"
     end if
 end sub
+
+function gotoSubscribe()
+    
+end function
 
 function onClickSubscribeButton()
     m.SubscriptionGroup.visible = false
