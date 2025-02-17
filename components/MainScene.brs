@@ -64,6 +64,7 @@ function videoplay1()
     m.video.content.url = "https://vz-1a8ceb4a-84a.b-cdn.net/0423eda1-4989-4f4b-9110-dd0b3c843d53/playlist.m3u8"
     m.video.content.streamFormat = "HLS"
     m.video.control = "play"
+    m.video.setFocus(true)
 
     m.video.observeField("duration", "onVideoDuration")
     m.video.observeField("state", "onVideoStateChange")
@@ -106,19 +107,20 @@ sub onVideoPositionChange(event as object)
     end if
 end sub
 
-sub forwardVideo(event as object)
+' sub videoForward()
+'     newPosition = m.lastLoggedSecond + 200
+'     if newPosition > m.duration then newPosition = m.duration 
+'     m.video.seek = newPosition
+'     ?"Video Forwarded to: " newPosition
+' end sub
 
-    position = event.getData()
-    position = int(position)
 
-    if position <= m.duration
-
-        m.lastLoggedSecond = position + 300
-
-        ?"Video Running seconds: "  m.lastLoggedSecond
-    end if
-
-end sub
+' sub videoRewind()
+'     newPosition = m.lastLoggedSecond - 10
+'     if newPosition < 0 then newPosition = 0 
+'     m.video.seek = newPosition
+'     ?"Video Rewinded to: " newPosition
+' end sub
 
 sub onVideoStateChange(event as object)
     state = event.getData()
@@ -438,10 +440,6 @@ function onKeyEvent(key as string, press as boolean) as boolean
         else if key = "down" and m.video.visible = false
             m.BBGroup.visible = true
             m.B1.setFocus(true)
-
-        else if key = "play" and m.video.visible = true
-            ?"forward"
-           
 
         else if key = "up" and m.BBGroup.visible = true
             ' m.video.translation = "[0, 0]"
