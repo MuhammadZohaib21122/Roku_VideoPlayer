@@ -2,6 +2,8 @@
 <component name="MainScene" extends="Scene">
 
     <script type="text/brightscript" uri="MainScene.brs" />
+    <script type="text/brightscript" uri="UILogic/ShowFirePlaceLogic.brs" />
+    <script type="text/brightscript" uri="UILogic/ScreenStack.brs" />
 
 
     <customization suspendhandler="customSuspend" />
@@ -12,6 +14,8 @@
         <field id="launchArgs" type="assocarray" />
         <field id="rowListData" type="node" />
 
+        <function name="ShowFirePlaceScreen" />
+        <function name="CloseScreen" />
 
         <field id="exitApp" type="boolean" alwaysNotify="true" />
 
@@ -21,115 +25,22 @@
     <children>
 
 
-        <Poster width="1920" height="1080" uri="pkg:/images/backgro.jpg" />
+        <Poster width="1920" height="1080" uri="pkg:/images/background_overlay.png" />
 
-        <Video id="videoPlayer" visible="false" />
-
-        <Group id="BBGroup" visible="true" translation="[0,0]">
-
-
-            <Button id="B1" focusable="true" iconUri="" text="SnowFall" focusedIconUri=""
-                visible="true" translation="[50, 980]"
-                maxWidth="340" minWidth="240" height="100"
-                focusBitmapUri="" focusFootprintBitmapUri=""
-                showFocusFootprint="true" />
-
-
-            <Button id="B2" focusable="true" iconUri="" text="FirePlace" focusedIconUri=""
-                visible="true" translation="[300, 980]"
-                maxWidth="340" minWidth="240" height="100"
-                focusBitmapUri="" focusFootprintBitmapUri=""
-                showFocusFootprint="true" />
-
-            <Button id="B3" focusable="true" iconUri="" text="SnowPark" focusedIconUri=""
-                visible="true" translation="[550, 980]"
-                maxWidth="340" minWidth="240" height="100"
-                focusBitmapUri="" focusFootprintBitmapUri=""
-                showFocusFootprint="true" />
-
-            <Button id="B4" focusable="true" iconUri="" text="SnowForest" focusedIconUri=""
-                visible="true" translation="[800, 980]"
-                maxWidth="340" minWidth="240" height="100"
-                focusBitmapUri="" focusFootprintBitmapUri=""
-                showFocusFootprint="true" />
-
-            <Button id="B5" focusable="true" iconUri="" text="WaterFall" focusedIconUri=""
-                visible="true" translation="[1090, 980]"
-                maxWidth="340" minWidth="240" height="100"
-                focusBitmapUri="" focusFootprintBitmapUri=""
-                showFocusFootprint="true" />
-
-            <Button id="B6" focusable="true" iconUri="" text="WaterTank" focusedIconUri=""
-                visible="true" translation="[1350, 980]"
-                maxWidth="340" minWidth="240" height="100"
-                focusBitmapUri="" focusFootprintBitmapUri=""
-                showFocusFootprint="true" />
-
-            <Button id="B7" focusable="true" iconUri="" text="UnderWater" focusedIconUri=""
-                visible="true" translation="[1610, 980]"
-                maxWidth="340" minWidth="240" height="100"
-                focusBitmapUri="" focusFootprintBitmapUri=""
-                showFocusFootprint="true" />
-
-
-        </Group>
-
-        <Group id="PreSubscriptionGroup" visible="false" translation="[0,0]">
-
-            <Poster id="trialFinished" width="1920" height="1080"
-                uri="pkg:/images/Subscription/stream_limit_dialog.png" />
-
-            <Button id="GoTOSubscriptionBTN" focusable="true" iconUri="" text=""
-                focusedIconUri=""
-                visible="true"
-                translation="[845, 745]"
-                maxWidth="232" minWidth="232" height="80"
-                focusFootprintBitmapUri="pkg:/images/Subscription/great_btn.png"
-                focusBitmapUri="pkg:/images/Subscription/great_btn.png"
-                showFocusFootprint="true" />
-        </Group>
-
-        <Group id="SubscriptionGroup" visible="false" translation="[0,0]">
-
-            <Poster width="1920" height="1080" uri="pkg:/images/backgro.jpg" />
-
-            <Poster id="subscriptionPoster" width="1920" height="1080"
-                uri="pkg:/images/Subscription/subscription_dialog.png" />
-
-            <Button id="closeSubscriptionButton" focusable="true" iconUri="" text=""
-                focusedIconUri=""
-                visible="true"
-                translation="[665, 766]"
-                maxWidth="278" minWidth="278" height="80"
-                focusFootprintBitmapUri="pkg:/images/Subscription/subscription_close_btn_unfocus.png"
-                focusBitmapUri="pkg:/images/Subscription/subscription_close_btn_focus.png"
-                showFocusFootprint="true" />
-
-            <Button id="subscribeButton" focusable="true" iconUri="" text="" focusedIconUri=""
-                visible="true"
-                translation="[978, 766]"
-                maxWidth="278" minWidth="278" height="80"
-                focusFootprintBitmapUri="pkg:/images/Subscription/subscription_subscribe_btn_unfocus.png"
-                focusBitmapUri="pkg:/images/Subscription/subscription_subscribe_btn_focus.png"
-                showFocusFootprint="true" />
-
-        </Group>
-
-        <Group id="SubscriptionDoneGroup" visible="false" translation="[0,0]">
-
-            <Poster id="subscriptionDonePoster" width="1920" height="1080"
-                uri="pkg:/images/Subscription/subscription_done_dialog.png" />
-
-            <Button id="closeSubscriptionDoneButton" focusable="true" iconUri="" text=""
-                focusedIconUri=""
-                visible="true"
-                translation="[845, 745]"
-                maxWidth="232" minWidth="232" height="80"
-                focusFootprintBitmapUri="pkg:/images/Subscription/great_btn.png"
-                focusBitmapUri="pkg:/images/Subscription/great_btn.png"
-                showFocusFootprint="true" />
-        </Group>
-
+        <LabelList
+            id="buttons_list"
+            translation="[890,200]"
+            itemSpacing="[ 0, 20 ]"
+            color="0xB4CCFF"
+            focusedColor="0xFFFFFF"
+            numRows="5"
+            itemSize="[250, 100]"
+            rowFocusAnimationStyle="floatingFocus"
+            textHorizAlign="left"
+            visible="true"
+            drawFocusFeedback="true"
+            focusBitmapBlendColor="0x00008B"
+        />
 
         <Group id="ExitGroup" visible="false" translation="[0,0]">
 
