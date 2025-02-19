@@ -3,13 +3,15 @@ sub InitScreenStack()
 end sub
 
 sub ShowScreen(node as Object)
-    ?"ShowScreen------------------"
+    ?"ShowScreen Function------------------"
     prev = m.screenStack.Peek() 
     if prev <> invalid
         prev.visible = false
+         ?"ShowScreen prev.visible = false------------------"
     end if
     m.top.AppendChild(node) 
     ' show new screen
+      ?"ShowScreen show new screen-----------------"
     node.visible = true
     node.SetFocus(true)
     m.screenStack.Push(node) 
