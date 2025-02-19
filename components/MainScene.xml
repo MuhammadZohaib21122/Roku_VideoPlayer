@@ -3,6 +3,7 @@
 
     <script type="text/brightscript" uri="MainScene.brs" />
     <script type="text/brightscript" uri="UILogic/ShowFirePlaceLogic.brs" />
+       <script type="text/brightscript" uri="UILogic/ShowFirstScreenLogic.brs" />
     <script type="text/brightscript" uri="UILogic/ScreenStack.brs" />
 
 
@@ -16,6 +17,7 @@
 
         <function name="ShowFirePlaceScreen" />
         <function name="CloseScreen" />
+         <function name="ShowFirstScreen" />
 
         <field id="exitApp" type="boolean" alwaysNotify="true" />
 
@@ -25,47 +27,6 @@
     <children>
 
 
-        <Poster width="1920" height="1080" uri="pkg:/images/background_overlay.png" />
-
-        <LabelList
-            id="buttons_list"
-            translation="[890,200]"
-            itemSpacing="[ 0, 20 ]"
-            color="0xB4CCFF"
-            focusedColor="0xFFFFFF"
-            numRows="5"
-            itemSize="[250, 100]"
-            rowFocusAnimationStyle="floatingFocus"
-            textHorizAlign="left"
-            visible="true"
-            drawFocusFeedback="true"
-            focusBitmapBlendColor="0x00008B"
-        />
-
-        <Group id="ExitGroup" visible="false" translation="[0,0]">
-
-
-            <Poster id="settingOverlay" width="1920" height="1080"
-                uri="pkg:/images/exit/exit_dialog.png" />
-
-
-            <Button id="exitButton" focusable="true" iconUri="" text="" focusedIconUri=""
-                visible="true"
-                translation="[986, 669]"
-                maxWidth="253" minWidth="253" height="81"
-                focusFootprintBitmapUri="pkg:/images/exit/yes_UF.png"
-                focusBitmapUri="pkg:/images/exit/yes_F.png"
-                showFocusFootprint="true" />
-
-            <Button id="cancelExitButton" focusable="true" iconUri="" text="" focusedIconUri=""
-                visible="true"
-                translation="[680, 669]"
-                maxWidth="253" minWidth="253" height="81"
-                focusFootprintBitmapUri="pkg:/images/exit/no_UF.png"
-                focusBitmapUri="pkg:/images/exit/no_F.png"
-                showFocusFootprint="true" />
-
-        </Group>
 
     </children>
 </component>
