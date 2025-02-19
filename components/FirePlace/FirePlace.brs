@@ -1,11 +1,11 @@
 function init()
     m.rateUsFlag = "true"
     m.BBGroup = m.top.findNode("BBGroup")
-    m.ExitGroup = m.top.FindNode("ExitGroup")
-    m.exitAppButton = m.top.findNode("exitButton")
-    m.cancelExitDialogeButton = m.top.findNode("cancelExitButton")
-    m.exitAppButton.observeField("buttonSelected", "exitButtonSelect")
-    m.cancelExitDialogeButton.observeField("buttonSelected", "cancelExitDialoge")
+    ' m.ExitGroup = m.top.FindNode("ExitGroup")
+    ' m.exitAppButton = m.top.findNode("exitButton")
+    ' m.cancelExitDialogeButton = m.top.findNode("cancelExitButton")
+    ' m.exitAppButton.observeField("buttonSelected", "exitButtonSelect")
+    ' m.cancelExitDialogeButton.observeField("buttonSelected", "cancelExitDialoge")
     m.video = m.top.findNode("videoPlayer")
     m.B1 = m.top.findNode("B1")
     m.B1.observeField("buttonSelected", "videoplay1")
@@ -305,15 +305,15 @@ function videoplay7()
 end function
 
 
-function cancelExitDialoge()
-    m.ExitGroup.visible = false
-    m.B1.setFocus(true)
+' function cancelExitDialoge()
+'     m.ExitGroup.visible = false
+'     m.B1.setFocus(true)
 
-end function
+' end function
 
-sub exitButtonSelect()
-    m.top.getScene().exitApp = true
-end sub
+' sub exitButtonSelect()
+'     m.top.getScene().exitApp = true
+' end sub
 
 
 function onKeyEvent(key as string, press as boolean) as boolean
@@ -326,14 +326,11 @@ function onKeyEvent(key as string, press as boolean) as boolean
 
             if m.video.visible = false and m.BBGroup.visible = true
 
-                m.ExitGroup.visible = true
-                m.cancelExitDialogeButton.setFocus(true)
+                m.top.getScene().callFunc("CloseScreen",invalid)
+                ' m.BBGroup.visible=false
                 handled = true
 
-            else if m.ExitGroup.visible = true
-                m.ExitGroup.visible = false
-                m.B1.setFocus(true)
-                handled = true
+            
 
             else if m.video.visible = true and m.BBGroup.visible = true
 
@@ -447,19 +444,10 @@ function onKeyEvent(key as string, press as boolean) as boolean
             handled = true
         end if
 
-        if key = "right" and m.cancelExitDialogeButton.hasFocus()
-            m.cancelExitDialogeButton.setFocus(false)
-            m.exitAppButton.setFocus(true)
-
-        else if key = "right" and m.closeSubscriptionButton.hasFocus()
+         if key = "right" and m.closeSubscriptionButton.hasFocus()
 
             m.closeSubscriptionButton.setFocus(false)
             m.subscribeButton.setFocus(true)
-
-
-        else if key = "left" and m.exitAppButton.hasFocus()
-            m.exitAppButton.setFocus(false)
-            m.cancelExitDialogeButton.setFocus(true)
 
         else if key = "left" and m.subscribeButton.hasFocus()
 
