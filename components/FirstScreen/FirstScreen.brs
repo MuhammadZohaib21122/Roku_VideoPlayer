@@ -9,7 +9,7 @@ sub init()
     m.cancelExitDialogeButton.observeField("buttonSelected", "cancelExitDialoge")
 
     menuButtons = [
-        { "text": "SnowFall" },
+        { "text": "Fire place Meditation" },
         { "text": "FirePlace" },
         { "text": "WaterFall" },
         { "text": "SnowPark" },
@@ -128,7 +128,7 @@ end function
 
 function cancelExitDialoge()
     m.ExitGroup.visible = false
-    m.B1.setFocus(true)
+    m.buttons_list.setFocus(true)
 
 end function
 
@@ -169,6 +169,46 @@ function onKeyEvent(key as string, press as boolean) as boolean
 
             end if
         end if
+
+        if key = "right"
+
+            if   m.cancelExitDialogeButton.hasFocus()
+
+                m.cancelExitDialogeButton.setFocus(false)
+                m.exitAppButton.setFocus(true)
+
+                handled = true
+
+            ' else if m.buttons_list.visible = false
+
+            '     m.buttons_list.visible = true
+            '     m.buttons_list.setFocus(true)
+
+            '     handled = true
+
+            end if
+        end if
+
+        if key = "left"
+
+            if  m.exitAppButton.hasFocus()
+
+                m.exitAppButton.setFocus(false)
+                m.cancelExitDialogeButton.setFocus(true)
+
+                handled = true
+
+            ' else if m.buttons_list.visible = false
+
+            '     m.buttons_list.visible = true
+            '     m.buttons_list.setFocus(true)
+
+            '     handled = true
+
+            end if
+        end if
+
+
     end if
     return handled
 
