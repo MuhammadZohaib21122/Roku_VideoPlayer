@@ -22,7 +22,23 @@
 
         <Video id="videoPlayer" visible="false" />
 
-        <Group id="BBGroup" visible="true" translation="[0,0]">
+          <LabelList
+            id="buttons_list"
+            translation="[40,200]"
+            itemSpacing="[ 0, 20 ]"
+            color="0xB4CCFF"
+            focusedColor="0xFFFFFF"
+            numRows="5"
+            itemSize="[250, 100]"
+            rowFocusAnimationStyle="floatingFocus"
+            textHorizAlign="left"
+            visible="true"
+            drawFocusFeedback="true"
+            focusBitmapBlendColor="0x00008B"
+        />
+
+
+        <!-- <Group id="BBGroup" visible="true" translation="[0,0]">
 
 
             <Button id="B1" focusable="true" iconUri="" text="LoungeAmbience" focusedIconUri=""
@@ -69,7 +85,7 @@
                 showFocusFootprint="true" />
 
 
-        </Group>
+        </Group> -->
 
         <Group id="PreSubscriptionGroup" visible="false" translation="[0,0]">
 
