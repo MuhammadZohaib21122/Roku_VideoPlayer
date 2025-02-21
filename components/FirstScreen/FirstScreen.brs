@@ -10,7 +10,7 @@ sub init()
 
     menuButtons = [
         { "text": "Fire place Meditation" },
-        { "text": "FirePlace" },
+        { "text": "ChristmasFirePlace" },
         { "text": "WaterFall" },
         { "text": "SnowPark" },
         { "text": "SnowForest" },
@@ -57,8 +57,8 @@ function onMenuButtonSelected(event as object)
     m.index = event.getData()
 
     actions = [
-        "onSnowFall",
-        "onFirePlace",
+        "onFireplaceMeditation",
+        "onChristmasFirePlace",
         "onWaterFall",
         "onSnowPark",
         "onSnowForest",
@@ -72,10 +72,10 @@ function onMenuButtonSelected(event as object)
 end function
 
 function CallFunction(funcName as string)
-    if funcName = "onSnowFall" then
-        onSnowFall()
-    else if funcName = "onFirePlace" then
-        onFirePlace()
+    if funcName = "onFireplaceMeditation" then
+        onFireplaceMeditation()
+    else if funcName = "onChristmasFirePlace" then
+        onChristmasFirePlace()
     else if funcName = "onWaterFall" then
         onWaterFall()
     else if funcName = "onSnowPark" then
@@ -89,41 +89,42 @@ function CallFunction(funcName as string)
     end if
 end function
 
-function onSnowFall()
-    ?"SnowFall selected"
+function onFireplaceMeditation()
+    ?"FireplaceMeditation selected"
     m.top.getScene().callFunc("ShowFirePlaceScreen")
 end function
 
-function onFirePlace()
+function onChristmasFirePlace()
     ?"FirePlace selected"
 
-    m.top.getScene().callFunc("ShowFirePlaceScreen")
-    ' ShowFirePlaceScreen()
+    m.top.getScene().callFunc("ShowChristmasFirePlaceScreen")
+
 
 end function
 
 function onWaterFall()
     ?"WaterFall selected"
+      ' m.top.getScene().callFunc("ShowFirePlaceScreen")
 end function
 
 function onSnowPark()
     ?"SnowPark selected"
-      m.top.getScene().callFunc("ShowFirePlaceScreen")
+    '   m.top.getScene().callFunc("ShowFirePlaceScreen")
 end function
 
 function onSnowForest()
     ?"SnowForest selected"
-      m.top.getScene().callFunc("ShowFirePlaceScreen")
+    '   m.top.getScene().callFunc("ShowFirePlaceScreen")
 end function
 
 function onWaterTank()
     ?"WaterTank selected"
-      m.top.getScene().callFunc("ShowFirePlaceScreen")
+    '   m.top.getScene().callFunc("ShowFirePlaceScreen")
 end function
 
 function onUnderSea()
     ?"UnderSea selected"
-      m.top.getScene().callFunc("ShowFirePlaceScreen")
+    '   m.top.getScene().callFunc("ShowFirePlaceScreen")
 end function
 
 function cancelExitDialoge()
