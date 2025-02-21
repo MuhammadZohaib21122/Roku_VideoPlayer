@@ -3,7 +3,8 @@
 
     <script type="text/brightscript" uri="MainScene.brs" />
     <script type="text/brightscript" uri="UILogic/ShowFirePlaceLogic.brs" />
-       <script type="text/brightscript" uri="UILogic/ShowFirstScreenLogic.brs" />
+    <script type="text/brightscript" uri="UILogic/ShowFirstScreenLogic.brs" />
+    <script type="text/brightscript" uri="UILogic/ChristmasFirePlaceLogic.brs" />
     <script type="text/brightscript" uri="UILogic/ScreenStack.brs" />
 
 
@@ -16,8 +17,9 @@
         <field id="rowListData" type="node" />
 
         <function name="ShowFirePlaceScreen" />
+        <function name="ShowChristmasFirePlaceScreen" />
         <function name="CloseScreen" />
-         <function name="ShowFirstScreen" />
+        <function name="ShowFirstScreen" />
 
         <field id="exitApp" type="boolean" alwaysNotify="true" />
 
@@ -25,7 +27,6 @@
     </interface>
 
     <children>
-
 
 
     </children>
