@@ -18,7 +18,7 @@
     <children>
 
 
-        <Poster width="1920" height="1080" uri="pkg:/images/backgro.jpg" />
+        <Poster width="1920" height="1080" uri="pkg:/images/ChristmasFirePlace.jpg" />
 
         <Video id="videoPlayer" visible="false" />
 
@@ -29,7 +29,7 @@
             color="0xB4CCFF"
             focusedColor="0xFFFFFF"
             numRows="5"
-            itemSize="[250, 100]"
+            itemSize="[350, 100]"
             rowFocusAnimationStyle="floatingFocus"
             textHorizAlign="left"
             visible="true"
@@ -37,55 +37,6 @@
             focusBitmapBlendColor="0x00008B"
         />
 
-
-        <!-- <Group id="BBGroup" visible="true" translation="[0,0]">
-
-
-            <Button id="B1" focusable="true" iconUri="" text="LoungeAmbience" focusedIconUri=""
-                visible="true" translation="[50, 980]"
-                maxWidth="340" minWidth="240" height="100"
-                focusBitmapUri="" focusFootprintBitmapUri=""
-                showFocusFootprint="true" />
-
-
-            <Button id="B2" focusable="true" iconUri="" text="FirePlace" focusedIconUri=""
-                visible="true" translation="[300, 980]"
-                maxWidth="340" minWidth="240" height="100"
-                focusBitmapUri="" focusFootprintBitmapUri=""
-                showFocusFootprint="true" />
-
-            <Button id="B3" focusable="true" iconUri="" text="SnowPark" focusedIconUri=""
-                visible="true" translation="[550, 980]"
-                maxWidth="340" minWidth="240" height="100"
-                focusBitmapUri="" focusFootprintBitmapUri=""
-                showFocusFootprint="true" />
-
-            <Button id="B4" focusable="true" iconUri="" text="SnowForest" focusedIconUri=""
-                visible="true" translation="[800, 980]"
-                maxWidth="340" minWidth="240" height="100"
-                focusBitmapUri="" focusFootprintBitmapUri=""
-                showFocusFootprint="true" />
-
-            <Button id="B5" focusable="true" iconUri="" text="WaterFall" focusedIconUri=""
-                visible="true" translation="[1090, 980]"
-                maxWidth="340" minWidth="240" height="100"
-                focusBitmapUri="" focusFootprintBitmapUri=""
-                showFocusFootprint="true" />
-
-            <Button id="B6" focusable="true" iconUri="" text="WaterTank" focusedIconUri=""
-                visible="true" translation="[1350, 980]"
-                maxWidth="340" minWidth="240" height="100"
-                focusBitmapUri="" focusFootprintBitmapUri=""
-                showFocusFootprint="true" />
-
-            <Button id="B7" focusable="true" iconUri="" text="UnderWater" focusedIconUri=""
-                visible="true" translation="[1610, 980]"
-                maxWidth="340" minWidth="240" height="100"
-                focusBitmapUri="" focusFootprintBitmapUri=""
-                showFocusFootprint="true" />
-
-
-        </Group> -->
 
         <Group id="PreSubscriptionGroup" visible="false" translation="[0,0]">
 
