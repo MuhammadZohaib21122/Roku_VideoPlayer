@@ -25,16 +25,16 @@
     <children>
 
 
-        <Poster width="1920" height="1080" uri="pkg:/images/background_overlay.png" />
+        <Poster width="1920" height="1080" uri="pkg:/images/firstScreen_Background.jpg" />
 
         <LabelList
             id="buttons_list"
-            translation="[890,200]"
+            translation="[40,200]"
             itemSpacing="[ 0, 20 ]"
             color="0xB4CCFF"
             focusedColor="0xFFFFFF"
             numRows="5"
-            itemSize="[250, 100]"
+            itemSize="[370, 100]"
             rowFocusAnimationStyle="floatingFocus"
             textHorizAlign="left"
             visible="true"
