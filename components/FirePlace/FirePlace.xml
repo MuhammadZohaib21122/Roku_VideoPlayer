@@ -29,7 +29,7 @@
             color="0xB4CCFF"
             focusedColor="0xFFFFFF"
             numRows="5"
-            itemSize="[250, 100]"
+            itemSize="[350, 100]"
             rowFocusAnimationStyle="floatingFocus"
             textHorizAlign="left"
             visible="true"
