@@ -27,13 +27,13 @@ function init()
 
     m.buttons_list = m.top.findNode("buttons_list")
     menuButtons = [
-        { "text": "NatureEscape" },
-        { "text": "QuietFlames" },
-        { "text": "Tranquality" },
-        { "text": "MeditationOfFire" },
-        { "text": "DivineWilderness" },
-        { "text": "DarkLogsMeditation" },
-        { "text": "WarmSedation" }
+        { "text": "WinterWarmth" },
+        { "text": "FireLounge" },
+        { "text": "MerryChristmas" },
+        { "text": "MeditateInFire" },
+        { "text": "HappyWinters" },
+        { "text": "GlimmeringHolidays" },
+        { "text": "SnowyChristmas" }
     ]
 
     parentNode = CreateObject("roSGNode", "ContentNode")
@@ -50,39 +50,19 @@ function init()
 
     m.buttons_list.setFocus(true)
 
-
-
-    ' m.BBGroup = m.top.findNode("BBGroup")
-    ' m.B1 = m.top.findNode("B1")
-    ' m.B1.observeField("buttonSelected", "videoplay1")
-    ' m.B2 = m.top.findNode("B2")
-    ' m.B2.observeField("buttonSelected", "videoplay2")
-    ' m.B3 = m.top.findNode("B3")
-    ' m.B3.observeField("buttonSelected", "videoplay3")
-    ' m.B4 = m.top.findNode("B4")
-    ' m.B4.observeField("buttonSelected", "videoplay4")
-    ' m.B5 = m.top.findNode("B5")
-    ' m.B5.observeField("buttonSelected", "videoplay5")
-    ' m.B6 = m.top.findNode("B6")
-    ' m.B6.observeField("buttonSelected", "videoplay6")
-    ' m.B7 = m.top.findNode("B7")
-    ' m.B7.observeField("buttonSelected", "videoplay7")
-    ' m.BBGroup.visible = true
-    ' m.B1.setFocus(true)
-
 end function
 
 function onMenuButtonSelected(event as object)
     m.index = event.getData()
 
     actions = [
-        "onNatureEscape",
-        "onQuietFlames",
-        "onTranquality",
-        "onMeditationOfFire",
-        "onDivineWilderness",
-        "onDarkLogsMeditation",
-        "onWarmSedation"
+        "onWinterWarmth",
+        "onFireLounge",
+        "onMerryChristmas",
+        "onMeditateInFire",
+        "onHappyWinters",
+        "onGlimmeringHolidays",
+        "SnowyChristmas"
     ]
 
     if m.index >= 0 and m.index <= 6
@@ -91,19 +71,19 @@ function onMenuButtonSelected(event as object)
 end function
 
 function CallFunction(funcName as string)
-    if funcName = "onNatureEscape" then
+    if funcName = "onWinterWarmth" then
         FPV1()
-    else if funcName = "onQuietFlames" then
+    else if funcName = "onFireLounge" then
         FPV2()
-    else if funcName = "onTranquality" then
+    else if funcName = "onMerryChristmas" then
         FPV3()
-    else if funcName = "onMeditationOfFire" then
+    else if funcName = "onMeditateInFire" then
         FPV4()
-    else if funcName = "onDivineWilderness" then
+    else if funcName = "onHappyWinters" then
         FPV5()
-    else if funcName = "onDarkLogsMeditation" then
+    else if funcName = "onGlimmeringHolidays" then
         FPV6()
-    else if funcName = "onWarmSedation" then
+    else if funcName = "SnowyChristmas" then
         FPV7()
     end if
 end function
@@ -115,7 +95,7 @@ function FPV1()
     m.video.visible = true
     m.video = m.top.findNode("videoPlayer")
     m.video.content = createObject("roSGNode", "ContentNode")
-    m.video.content.url = "https://vz-7e9bbf26-f4b.b-cdn.net/e91137be-ac2d-442a-8d30-cedbec5bfc83/playlist.m3u8"
+    m.video.content.url = "https://vz-7e9bbf26-f4b.b-cdn.net/38087a24-8728-43de-afee-6a4969fb56f6/playlist.m3u8"
 
 
     m.video.content.streamFormat = "HLS"
@@ -240,7 +220,7 @@ function FPV2()
     m.video.visible = true
     m.video = m.top.findNode("videoPlayer")
     m.video.content = createObject("roSGNode", "ContentNode")
-    m.video.content.url = "https://vz-7e9bbf26-f4b.b-cdn.net/e549e13f-c45a-4f19-9e66-47b0b17cae25/playlist.m3u8"
+    m.video.content.url = "https://vz-7e9bbf26-f4b.b-cdn.net/09801a23-0968-437b-a4cb-9b7e35bacc4e/playlist.m3u8"
     m.video.content.streamFormat = "HLS"
     m.video.control = "play"
 
@@ -262,7 +242,7 @@ function FPV3()
     m.video.visible = true
     m.video = m.top.findNode("videoPlayer")
     m.video.content = createObject("roSGNode", "ContentNode")
-    m.video.content.url = "https://vz-7e9bbf26-f4b.b-cdn.net/963a9c5b-d029-49c1-a706-364cb5bed073/playlist.m3u8"
+    m.video.content.url = "https://vz-7e9bbf26-f4b.b-cdn.net/b2aa2ae1-6d99-4cdf-81f0-f4cb2c950ed4/playlist.m3u8"
     m.video.content.streamFormat = "HLS"
     m.video.control = "play"
 
@@ -284,7 +264,7 @@ function FPV4()
 
     m.video = m.top.findNode("videoPlayer")
     m.video.content = createObject("roSGNode", "ContentNode")
-    m.video.content.url = "https://vz-7e9bbf26-f4b.b-cdn.net/aabbe056-3b19-4904-9f14-ca595914499c/playlist.m3u8"
+    m.video.content.url = "https://vz-7e9bbf26-f4b.b-cdn.net/13e577e9-bac7-4e46-97ac-c2869c278b87/playlist.m3u8"
     m.video.content.streamFormat = "HLS"
     m.video.control = "play"
 
@@ -304,7 +284,7 @@ function FPV5()
     m.video.visible = true
     m.video = m.top.findNode("videoPlayer")
     m.video.content = createObject("roSGNode", "ContentNode")
-    m.video.content.url = "https://vz-7e9bbf26-f4b.b-cdn.net/d71075f1-fa6c-4c1c-af9f-d94d9f34bcf7/playlist.m3u8"
+    m.video.content.url = "https://vz-7e9bbf26-f4b.b-cdn.net/9f97a45d-425f-4be0-be23-1bc9124181cf/playlist.m3u8"
     m.video.content.streamFormat = "HLS"
     m.video.control = "play"
 
@@ -324,7 +304,7 @@ function FPV6()
     m.video.visible = true
     m.video = m.top.findNode("videoPlayer")
     m.video.content = createObject("roSGNode", "ContentNode")
-    m.video.content.url = "https://vz-7e9bbf26-f4b.b-cdn.net/4f3b527d-3529-46a9-9a81-fffed6a4f17f/playlist.m3u8"
+    m.video.content.url = "https://vz-7e9bbf26-f4b.b-cdn.net/1cdc485e-dbdc-4406-a59a-acd42cdfc3f1/playlist.m3u8"
     m.video.content.streamFormat = "HLS"
     m.video.control = "play"
     m.video.observeField("duration", "onVideoDuration")
@@ -343,7 +323,7 @@ function FPV7()
     m.video.visible = true
     m.video = m.top.findNode("videoPlayer")
     m.video.content = createObject("roSGNode", "ContentNode")
-    m.video.content.url = "https://vz-7e9bbf26-f4b.b-cdn.net/02afb7fb-f310-4d3f-814f-832a2fdf9b32/playlist.m3u8"
+    m.video.content.url = "https://vz-7e9bbf26-f4b.b-cdn.net/e81444fd-08c4-492b-bd57-a81e8a958997/playlist.m3u8"
     m.video.content.streamFormat = "HLS"
     m.video.control = "play"
     m.video.observeField("duration", "onVideoDuration")
@@ -354,19 +334,6 @@ function FPV7()
 
     ?"LL-------------" m.video.control
 end function
-
-
-' function cancelExitDialoge()
-'     m.ExitGroup.visible = false
-'     m.B1.setFocus(true)
-
-' end function
-
-' sub exitButtonSelect()
-'     m.top.getScene().exitApp = true
-' end sub
-
-
 
 sub focusChanged(evt)
 
@@ -397,7 +364,7 @@ function onKeyEvent(key as string, press as boolean) as boolean
             if m.video.visible = false and m.buttons_list.visible = true
 
                 m.top.getScene().callFunc("CloseScreen", invalid)
-                ' m.BBGroup.visible=false
+               
                 handled = true
 
 
@@ -418,101 +385,22 @@ function onKeyEvent(key as string, press as boolean) as boolean
                 m.buttons_list.setFocus(true)
                 handled = true
 
-                ' else if  m.SubscriptionGroup.visible = true
-
-                '     m.SubscriptionGroup.visible = false
-                '     m.video.visible = false
-                '     m.BBGroup.visible = true
-                '     m.B1.setFocus(true)
-                '     handled = true
-
             end if
         end if
 
-        ' if key = "right" and m.BBGroup.visible = true then
+        if key = "right" and m.video.visible = true and m.buttons_list.visible = true then
 
-        '     if m.B1.hasFocus()
+            m.buttons_list.visible = false
+            m.video.setFocus(true)
 
-        '         m.B1.setFocus(false)
-        '         m.B2.setFocus(true)
+            ' if m.B1.hasFocus()
 
+            '     m.B1.setFocus(false)
+            '     m.B2.setFocus(true)
 
-        '     else if m.B2.hasFocus()
-
-        '         m.B2.setFocus(false)
-        '         m.B3.setFocus(true)
-
-        '     else if m.B3.hasFocus()
-
-        '         m.B3.setFocus(false)
-        '         m.B4.setFocus(true)
-
-        '     else if m.B4.hasFocus()
-
-        '         m.B4.setFocus(false)
-        '         m.B5.setFocus(true)
-
-        '     else if m.B5.hasFocus()
-
-        '         m.B5.setFocus(false)
-        '         m.B6.setFocus(true)
-
-        '     else if m.B6.hasFocus()
-
-        '         m.B6.setFocus(false)
-        '         m.B7.setFocus(true)
-
-        '     else if m.B7.hasFocus()
-
-        '         m.B7.setFocus(false)
-        '         m.B1.setFocus(true)
-
-        '     end if
-        '     handled = true
-        ' end if
-
-
-        ' if key = "left" and m.BBGroup.visible = true then
-
-        '     if m.B1.hasFocus()
-
-        '         m.B1.setFocus(false)
-        '         m.B7.setFocus(true)
-
-
-        '     else if m.B7.hasFocus()
-
-        '         m.B7.setFocus(false)
-        '         m.B6.setFocus(true)
-
-        '     else if m.B6.hasFocus()
-
-        '         m.B6.setFocus(false)
-        '         m.B5.setFocus(true)
-
-        '     else if m.B5.hasFocus()
-
-        '         m.B5.setFocus(false)
-        '         m.B4.setFocus(true)
-
-        '     else if m.B4.hasFocus()
-
-        '         m.B4.setFocus(false)
-        '         m.B3.setFocus(true)
-
-        '     else if m.B3.hasFocus()
-
-        '         m.B3.setFocus(false)
-        '         m.B2.setFocus(true)
-
-        '     else if m.B2.hasFocus()
-
-        '         m.B2.setFocus(false)
-        '         m.B1.setFocus(true)
-
-        '     end if
-        '     handled = true
-        ' end if
+            ' end if
+            handled = true
+        end if
 
         if key = "right" and m.closeSubscriptionButton.hasFocus()
 
@@ -524,24 +412,10 @@ function onKeyEvent(key as string, press as boolean) as boolean
             m.subscribeButton.setFocus(false)
             m.closeSubscriptionButton.setFocus(true)
 
-            ' else if key = "down" and m.video.visible = true
-            '     ' m.video.translation = "[0, -100]"
-            '     m.video.setFocus(false)
-            '     m.B1.setFocus(true)
-            '     m.BBGroup.visible = true
-
-            ' else if key = "down" and m.video.visible = false
-            '     m.BBGroup.visible = true
-            '     m.B1.setFocus(true)
-
         else if key = "replay" and m.video.visible = true
             m.video.control = "stop"
             m.video.control = "play"
 
-            ' else if key = "up"  and m.video.visible = true and m.BBGroup.visible = true
-            '     ' m.video.translation = "[0, 0]"
-            '     m.BBGroup.visible = false
-            '     m.video.setFocus(true)
             handled = true
         end if
         handled = true
