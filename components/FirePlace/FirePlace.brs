@@ -17,7 +17,7 @@ function init()
     m.closeSubscriptionDoneButton = m.top.findNode("closeSubscriptionDoneButton")
     m.closeSubscriptionDoneButton.observeField("buttonSelected", "onSubscribeDoneButton")
 
-   
+
     m.rateUsRegistry = CreateObject("roRegistrySection", "showRateUsPopup")
     if m.rateUsRegistry.Exists("RateusFlag") = false
         m.rateUsRegistry.Write("RateusFlag", "true")
@@ -381,7 +381,7 @@ sub focusChanged(evt)
             child = child.focusedChild
         end while
 
-      
+
     end if
 end sub
 
@@ -429,90 +429,20 @@ function onKeyEvent(key as string, press as boolean) as boolean
             end if
         end if
 
-        ' if key = "right" and m.BBGroup.visible = true then
+        if key = "right" and m.video.visible = true and m.buttons_list.visible = true then
 
-        '     if m.B1.hasFocus()
+            m.buttons_list.visible = false
+            m.video.setFocus(true)
 
-        '         m.B1.setFocus(false)
-        '         m.B2.setFocus(true)
+            ' if m.B1.hasFocus()
 
+            '     m.B1.setFocus(false)
+            '     m.B2.setFocus(true)
 
-        '     else if m.B2.hasFocus()
+            ' end if
+            handled = true
+        end if
 
-        '         m.B2.setFocus(false)
-        '         m.B3.setFocus(true)
-
-        '     else if m.B3.hasFocus()
-
-        '         m.B3.setFocus(false)
-        '         m.B4.setFocus(true)
-
-        '     else if m.B4.hasFocus()
-
-        '         m.B4.setFocus(false)
-        '         m.B5.setFocus(true)
-
-        '     else if m.B5.hasFocus()
-
-        '         m.B5.setFocus(false)
-        '         m.B6.setFocus(true)
-
-        '     else if m.B6.hasFocus()
-
-        '         m.B6.setFocus(false)
-        '         m.B7.setFocus(true)
-
-        '     else if m.B7.hasFocus()
-
-        '         m.B7.setFocus(false)
-        '         m.B1.setFocus(true)
-
-        '     end if
-        '     handled = true
-        ' end if
-
-
-        ' if key = "left" and m.BBGroup.visible = true then
-
-        '     if m.B1.hasFocus()
-
-        '         m.B1.setFocus(false)
-        '         m.B7.setFocus(true)
-
-
-        '     else if m.B7.hasFocus()
-
-        '         m.B7.setFocus(false)
-        '         m.B6.setFocus(true)
-
-        '     else if m.B6.hasFocus()
-
-        '         m.B6.setFocus(false)
-        '         m.B5.setFocus(true)
-
-        '     else if m.B5.hasFocus()
-
-        '         m.B5.setFocus(false)
-        '         m.B4.setFocus(true)
-
-        '     else if m.B4.hasFocus()
-
-        '         m.B4.setFocus(false)
-        '         m.B3.setFocus(true)
-
-        '     else if m.B3.hasFocus()
-
-        '         m.B3.setFocus(false)
-        '         m.B2.setFocus(true)
-
-        '     else if m.B2.hasFocus()
-
-        '         m.B2.setFocus(false)
-        '         m.B1.setFocus(true)
-
-        '     end if
-        '     handled = true
-        ' end if
 
         if key = "right" and m.closeSubscriptionButton.hasFocus()
 
@@ -524,24 +454,10 @@ function onKeyEvent(key as string, press as boolean) as boolean
             m.subscribeButton.setFocus(false)
             m.closeSubscriptionButton.setFocus(true)
 
-            ' else if key = "down" and m.video.visible = true
-            '     ' m.video.translation = "[0, -100]"
-            '     m.video.setFocus(false)
-            '     m.B1.setFocus(true)
-            '     m.BBGroup.visible = true
-
-            ' else if key = "down" and m.video.visible = false
-            '     m.BBGroup.visible = true
-            '     m.B1.setFocus(true)
-
         else if key = "replay" and m.video.visible = true
             m.video.control = "stop"
             m.video.control = "play"
 
-            ' else if key = "up"  and m.video.visible = true and m.BBGroup.visible = true
-            '     ' m.video.translation = "[0, 0]"
-            '     m.BBGroup.visible = false
-            '     m.video.setFocus(true)
             handled = true
         end if
         handled = true
