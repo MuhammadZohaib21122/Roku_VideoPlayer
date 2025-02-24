@@ -11,7 +11,7 @@ sub init()
     menuButtons = [
         { "text": "Fire place Meditation" },
         { "text": "ChristmasFirePlace" },
-        { "text": "WaterFall" },
+        { "text": "SnowFall" },
         { "text": "SnowPark" },
         { "text": "SnowForest" },
         { "text": "WaterTank" },
