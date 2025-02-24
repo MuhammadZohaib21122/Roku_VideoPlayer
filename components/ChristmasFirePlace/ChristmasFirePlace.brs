@@ -323,7 +323,7 @@ function FPV7()
     m.video.visible = true
     m.video = m.top.findNode("videoPlayer")
     m.video.content = createObject("roSGNode", "ContentNode")
-    m.video.content.url = "https://vz-7e9bbf26-f4b.b-cdn.net/e81444fd-08c4-492b-bd57-a81e8a958997/playlist.m3u8"
+    m.video.content.url = "https://vz-1a8ceb4a-84a.b-cdn.net/ddda6950-961a-4e49-9e1d-f514ef0aca39/playlist.m3u8"
     m.video.content.streamFormat = "HLS"
     m.video.control = "play"
     m.video.observeField("duration", "onVideoDuration")
